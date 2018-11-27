@@ -1,0 +1,336 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100px;
+}
+html #container {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+html #container #root {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  background-color: #fff;
+}
+html #container #mask {
+  display: none;
+  padding-top: 200px;
+  font-size: 28px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 99999999;
+  background-color: #fff;
+}
+html #container #mask button {
+  height: 50px;
+  width: 500px;
+}
+html #container #login {
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 28px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  background-color: #fff;
+}
+html #container #login input {
+  width: 300px;
+  height: 50px;
+}
+html #container #login button {
+  height: 50px;
+  width: 300px;
+}
+html #container #login #logintitle {
+  height: 50px;
+}
+html #container #login #title {
+  margin-bottom: 100px;
+  color: red;
+}
+html #container #init {
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 28px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 9999;
+  background-color: #fff;
+}
+html #container #init input {
+  width: 300px;
+  height: 50px;
+}
+html #container #init button {
+  height: 50px;
+  width: 300px;
+}
+html #container #init #initTitle {
+  color: red;
+  height: 50px;
+  margin-bottom: 10px;
+}
+html #container input,
+html #container .padd {
+  padding-left: 10px;
+}
+html #container .x {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 30px;
+}
+html #container .setting {
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 600px;
+  background-color: aliceblue;
+  border: 1px solid red;
+  display: none;
+}
+html #container .setting .setting-item {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+html #container .setting .setting-item input {
+  height: 40px;
+}
+html #container .setting .setting-item button {
+  height: 40px;
+}
+html #container .setting #settingtitle {
+  font-size: 25px;
+  text-align: center;
+}
+html #container .setting #auth {
+  position: absolute;
+  bottom: 10px;
+  width: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+html #container .rule {
+  z-index: 100;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 600px;
+  background-color: aliceblue;
+  border: 1px solid red;
+}
+html #container .rule .rule-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+html #container .rule .rule-item input {
+  height: 40px;
+}
+html #container .rule .rule-item button {
+  height: 40px;
+}
+html #container .rule #ruletitle {
+  font-size: 25px;
+  text-align: center;
+}
+html #container .addUser {
+  z-index: 100;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 600px;
+  background-color: aliceblue;
+  border: 1px solid red;
+}
+html #container .addUser #usertype {
+  height: 40px;
+}
+html #container .addUser .adduser-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+html #container .addUser .adduser-item input {
+  height: 40px;
+}
+html #container .addUser .adduser-item button {
+  height: 40px;
+}
+html #container .addUser #addusertitle {
+  font-size: 25px;
+  text-align: center;
+}
+html #container #header {
+  height: auto;
+}
+html #container #header #title {
+  padding: 0.1rem;
+  font-size: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-bottom: 0px;
+}
+html #container #header #setting {
+  font-size: 0.14rem;
+  display: flex;
+}
+html #container #header #setting #setting-left {
+  padding: 10px;
+  border: 1px solid #000;
+  border-right: 0px;
+  flex-grow: 1;
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+html #container #header #setting #setting-left div {
+  padding: 10px 20px 10px 20px;
+  margin-right: 10px;
+  height: 30px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html #container #header #setting #setting-right {
+  padding-left: 10px;
+  font-size: 0.14rem;
+  border: 1px solid #000;
+  height: 45px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html #container #header #setting #setting-right span {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+html #container #header #setting #setting-right span span {
+  padding: 0px;
+}
+html #container #header #detail {
+  font-size: 0.1rem;
+  border: 1px solid #000;
+  border-top: 0px;
+  height: 80px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+}
+html #container #header #detail .detial-item {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  font-size: 0.14rem;
+  display: flex;
+  align-items: center;
+}
+html #container #header #detail .detial-item-border {
+  padding: 10px;
+}
+html #container #header #detail .detial-item-border div {
+  border: 1px solid #000;
+  height: 100%;
+  width: 100%;
+}
+html #container #header #detail .detial-item-border div input {
+  height: 100%;
+  width: 100%;
+}
+html #container #header #result {
+  border: 1px solid #000;
+  border-top: 0px;
+  font-size: 0.14rem;
+  height: 45px;
+  display: flex;
+}
+html #container #header #result #result-left {
+  width: 120px;
+}
+html #container #header #result #result-left #result-report {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  border: 1px solid #000;
+  border-top: 0px;
+  border-left: 0px;
+}
+html #container #header #result #result-right {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+}
+html #container #header #result #result-right #result-pointer {
+  width: 120px;
+}
+html #container #header #result #result-right #result-op {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+html #container #header #result #result-right #result-op .result-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  border: 1px solid #000;
+  height: 32px;
+  margin-left: 10px;
+}
+html #container #logs {
+  background-color: beige;
+  flex-grow: 1;
+  font-size: 18px;
+  overflow: scroll;
+}
+

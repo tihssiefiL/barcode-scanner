@@ -1,0 +1,77 @@
+{
+  "name": "electron-quick-start",
+  "version": "0.0.1",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "./node_modules/.bin/electron-rebuild",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-rebuild": "^1.8.2",
+    "electron-builder": "^20.27.1"
+  },
+  "dependencies": {
+    "ajv": "^6.5.3",
+    "electron-packager": "^12.1.0",
+    "keyboardevent-from-electron-accelerator": "^1.1.0",
+    "mysql": "^2.16.0",
+    "nkbhook": "^0.1.2",
+    "node-gyp": "^3.8.0",
+    "node-hid-stream": "0.0.3",
+    "node-notifier": "^5.2.1",
+    "node-xlsx": "^0.12.1",
+    "npm": "^6.4.1",
+    "request": "^2.88.0",
+    "sqlite3": "^4.0.2",
+    "underscore": "^1.9.1",
+    "usb-barcode-scanner": "^1.0.1",
+    "usb-detection": "^3.2.0",
+    "watch": "^1.0.2"
+  },
+  "build": {
+    "appId": "com.wanshangwuxian.yigga",
+    "copyright": "YangYang",
+    "productName": "barcode Scanner",
+    "dmg": {
+      "background": "res/background.png",
+      "window": {
+        "x": 100,
+        "y": 100,
+        "width": 500,
+        "height": 300
+      }
+    },
+    "win": {
+      "icon": "res/icon.ico"
+    }
+  },
+  "iohook": {
+    "targets": [
+      "node-59",
+      "electron-57"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  }
+}

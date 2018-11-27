@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Scanner</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="root"></div>
+    <div id="admin"></div>
+    <div id="user"></div>
+    <div id='mask'>
+      <div id='mask-title'>未授权的软件</div>
+      <button id='auth'>获得授权</button>
+    </div>
+    <div id='login'>
+      <p id='title'>请在检测前先行扫描待测量物件</p>
+      <input type="text" id='loginusername' placeholder="请输入登录账户">
+      <input type="text" id='loginuserpswd' placeholder="请输入登录密码">
+      <button id='gologin'>登录</button>
+      <div id='logintitle'></div>
+    </div>
+    <div id='init'>
+      <p id='initTitle'>初始化管理员账户</p>
+      <input type="text" id='initnum' placeholder="请输入工号">
+      <input type="text" id='initname' placeholder="请输入姓名">
+      <input type="text" id='initpswd' placeholder="请输入密码">
+      <button id='goinit'>设置</button>
+    </div>
+    <div class="setting">
+      <span class="x1 x">X</span>
+      <div class="setting-item">
+        <input type="text" placeholder="源文件所在文件夹" id="sourcepath">
+        <input type="text" placeholder="源文件名称" id="sourcefile">
+        <input type="text" placeholder="目标文件所在文件夹" id="targetpath">
+        <!-- <input type="text" placeholder="检验员" id="testuser"> -->
+        <button id='savesetting'>保存设置</button>
+        <div id='settingtitle'></div>
+      </div>
+    </div>
+    <div class="rule">
+      <span class="x2 x">X</span>
+      <div class="rule-item">
+        <input placeholder="请输入要添加的条形码" type="text" id="rule-bc">
+        <input placeholder="请输入要添加的物料号" type="text" id="rule-num">
+        <input placeholder="请输入要添加的描述" type="text" id="rule-desc">
+        <button id="rule-add">添加</button>
+        <span id='ruletitle'></span>
+      </div>
+    </div>
+    <div class="addUser">
+      <span class="x3 x">X</span>
+      <div class="adduser-item">
+        <input placeholder="请输入要添加的员工编号" type="text" id="addusernumber">
+        <input placeholder="请输入要添加的员工姓名" type="text" id="addusername">
+        <input placeholder="请输入要添加的员工密码" type="text" id="adduserpswd">
+        <select name="" id="usertype">
+          <option value="root">超级管理员</option>
+          <option value="admin">管理员</option>
+          <option value="scanner" selected>检验员</option>
+          <option value="user">普通用户</option>
+        </select>
+        <button id="adduser-add">添加</button>
+        <span id='addusertitle'></span>
+      </div>
+    </div>
+    <!-- <div class="rule">
+      <span class="x2 x">X</span>
+      <div class="rule-item">
+        <input placeholder="请输入要添加的条形码" type="text" id="rule-bc">
+        <input placeholder="请输入要添加的描述" type="text" id="rule-desc">
+        <input placeholder="请输入要添加的物料号" type="text" id="rule-num">
+        <button id="rule-add">添加</button>
+        <span id='ruletitle'></span>
+      </div>
+    </div> -->
+    <div id="header">
+      <div id="title">XXX在线测量</div>
+      <div id="setting">
+        <div id="setting-left">
+          <div id="rule">Barcode 规格</div>
+          <div id="settings">设置</div>
+          <div id="adduser">添加员工</div>
+          <div id="handbook">操作手册</div>
+          <div class="result-btn" id="close">注销</div>
+        </div>
+        <div id="setting-right">
+          <span> 日期：
+            <span id='date'>获取中。。。</span>
+            <script>
+              // document.write(new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDay())
+            </script>
+          </span>
+          <span> 时间：
+            <span id='time'>获取中。。。</span>
+            <script>
+              // document.write(new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds())
+            </script>
+          </span>
+        </div>
+      </div>
+      <div id="detail">
+        <div class="detial-item detial-item-top-1">Barcode </div>
+        <div class="detial-item detial-item-border detial-item-top-2">
+          <div id='barcode'>
+            <!-- <input class="padd" id="bc" type="text" > -->
+          </div>
+        </div>
+        <div class="detial-item detial-item-top-3">检测日期 </div>
+        <div class="detial-item detial-item-border detial-item-top-4">
+          <div class="padd" id="test-date">
+          </div>
+        </div>
+        <div id='whoami' class="detial-item detial-item-top-5">检验员 </div>
+        <div class="detial-item detial-item-border detial-item-top-6">
+          <div class="padd" id='test-user'>
+          </div>
+        </div>
+        <div class="detial-item detial-item-bot-1">物料号 </div>
+        <div class="detial-item detial-item-border detial-item-bot-2">
+          <div class="padd" id='materiel'>
+          </div>
+        </div>
+        <div class="detial-item detial-item-bot-3">描述 </div>
+        <div class="detial-item detial-item-border detial-item-bot-4">
+          <div class="padd" id="describes">
+          </div>
+        </div>
+        <div class="detial-item detial-item-bot-5">检验工时 </div>
+        <div class="detial-item detial-item-border detial-item-bot-6">
+          <div class="padd" id="work-time">
+          </div>
+        </div>
+      </div>
+      <div id="result">
+        <div id='result-left'>
+          <div id="result-report">检测报告</div>
+        </div>
+        <div id='result-right'>
+          <div id="result-pointer"></div>
+          <div id="result-op">
+            <div class="result-btn" id="open">打开</div>
+            <!-- <div class="result-btn" id="close">关闭</div> -->
+            <!-- <div class="result-btn" id="download">下载</div> -->
+            <!-- <div class="result-btn" id="print">打印</div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="logs">
+
+    </div>
+  </div>
+</body>
+<script>
+  require('./renderer.js')
+  require('./render.js')
+</script>
+
+</html>
